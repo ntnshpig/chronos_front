@@ -1,0 +1,168 @@
+
+$main-text-color: #3d4f9f;
+$sub-text-color: #697ca6;
+$background_color: #a4bff7;
+
+
+.SignUpDiv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.SignUp {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  width: 60%;
+  min-height: 700px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  background: #ffffff;
+  box-shadow: 0px 5px 45px rgba(151, 175, 227, 0.3);
+  border-radius: 12px;
+
+  .Loader {
+    margin-top: 100px;
+  }
+
+  .IntroText {
+    margin-top: 1.2em;
+    margin-bottom: 1em;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 40px;
+    color: #3d4f9f;
+
+    b {
+      font-weight: 500;
+    }
+  }
+
+  form {
+    min-width: 400px;
+    width: 40%;
+    color: #3d4f9f;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    background: #ffffff;
+    border: 1px solid #d2e1ff;
+    box-sizing: border-box;
+    border-radius: 6px;
+    padding: 20px 30px;
+    margin-bottom: 60px;
+  }
+  .EnterData {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 4px;
+  }
+  .TermsCheckbox {
+    font-size: 14px;
+    margin-left: 10px;
+    color: #3d4f9f;
+    margin-left: 9px;
+  }
+  .TermsOfUse {
+    color: rgba(58, 121, 255, 0.5);
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+  input {
+    background: #ffffff;
+    border: 1px solid #d2e1ff;
+    box-sizing: border-box;
+    border-radius: 6px;
+    margin: 10px 0px;
+    padding: 7px 9px;
+    overflow: hidden;
+    font-weight: 400;
+    font-size: 16px;
+    color: #3d4f9f;
+  }
+  input::placeholder {
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: -0.015em;
+    color: rgba(58, 121, 255, 0.5);
+  }
+  input:focus {
+    outline: none;
+  }
+  .button {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 30px;
+    border: none;
+    background: #d2e1ff;
+    border-radius: 6px;
+    color: #3d4f9f;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    transition: 0.1s;
+  }
+
+  .button:hover,
+  .button:active {
+    background: #a4bff7;
+  }
+
+  .button:focus {
+    outline: none;
+  }
+
+  .button:disabled {
+    background: #ebf2ff;
+  }
+
+  .HaveAcc {
+    font-size: 12px;
+    margin-top: 40px;
+    line-height: 12px;
+    letter-spacing: 0.05em;
+    color: #aeb8d0;
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}
+
+@media all and (max-width: 1100px) {
+  .SignUp {
+    .IntroText {
+      margin-top: 40px;
+    }
+    form {
+      margin-bottom: 50px;
+    }
+  }
+}
+@media all and (max-width: 790px) {
+  .SignUp {
+    min-height: 600px;
+    width: 100%;
+    margin: 0px;
+    max-width: 100%;
+    border-radius: 0px;
+
+    .IntroText {
+      font-size: 34px;
+    }
+  }
+}
+@media all and (max-width: 424px) {
+  .SignUp {
+    form {
+      padding: 20px 20px;
+      min-width: 300px;
+    }
+  }
+}

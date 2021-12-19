@@ -1,0 +1,22 @@
+.PolicyDiv {
+    max-height: 50vh;
+    overflow-y: scroll;
+    h2 {
+        color: #3d4f9f;
+      font-weight: 400;
+      font-size: 22px;
+    }
+    h3 {
+      color: #3d4f9f;
+      font-weight: 400;
+      font-size: 18px;
+    }
+    p, li {
+      font-size: 14px;
+      letter-spacing: 0.05em;
+  
+      color: #697ca6;
+  
+      text-shadow: 0px 0px 5px #e6e6e6;
+    }
+  }

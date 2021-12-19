@@ -1,0 +1,135 @@
+$main-text-color: #3d4f9f;
+$sub-text-color: #697ca6;
+$background_color: #a4bff7;
+
+.SupportDiv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.Support {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 90%;
+  max-width: 1000px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  background: #ffffff;
+  box-shadow: 0px 5px 45px rgba(151, 175, 227, 0.3);
+  border-radius: 12px;
+
+  .TopDiv {
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 0px 5px 45px rgba(151, 175, 227, 0.1);
+    border-radius: 12px 12px 0px 0px;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .IntroText {
+      margin: 1.5em;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 24px;
+      letter-spacing: 0.05em;
+      text-transform: capitalize;
+
+      color: #697ca6;
+
+      text-shadow: 0px 0px 5px #e6e6e6;
+    }
+  }
+
+  .BottomDiv {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+
+    .FormElem {
+      display: flex;
+      flex-flow: column;
+
+      .InfoText {
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: 0.05em;
+
+        color: #697ca6;
+
+        text-shadow: 0px 0px 5px #e6e6e6;
+        margin-bottom: 20px;
+      }
+
+      .ContentInput,
+      input {
+        width: 100%;
+        max-width: 600px;
+        resize: vertical;
+        color: #3d4f9f;
+        padding: 0.375rem 0.75rem;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        font-size: 1rem;
+        line-height: 1.6;
+        border: none;
+        background: #f2f6ff;
+        box-shadow: inset 0px 5px 45px rgba(151, 175, 227, 0.2);
+        border-radius: 12px;
+        background-clip: padding-box;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        font-family: -apple-system, BlinkMacSystemFont, "Poppins", "Segoe UI",
+          "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+          "Helvetica Neue", sans-serif;
+      }
+      input:focus,
+      .ContentInput:focus {
+        outline: none;
+      }
+    }
+
+    .ContentElem {
+      margin-top: 50px;
+    }
+
+    .button {
+      width: 100%;
+      max-width: 600px;
+      font-size: 16px;
+      font-weight: 600;
+      margin-top: 30px;
+      border: none;
+      background: #d2e1ff;
+      border-radius: 6px;
+      color: #3D4F9F;
+      padding: 0.75rem 1.5rem;
+      cursor: pointer;
+      transition: 0.1s;
+    }
+
+    .button:hover,
+    .button:active {
+      background: #a4bff7;
+    }
+
+    .button:focus {
+      outline: none;
+    }
+
+    .button:disabled {
+      background: #ebf2ff;
+    }
+  }
+}
+@media all and (max-width: 565px) {
+
+}

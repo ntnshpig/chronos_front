@@ -1,0 +1,149 @@
+
+$main-text-color: #3d4f9f;
+$sub-text-color: #697ca6;
+$background_color: #a4bff7;
+
+.SignInDiv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.SignIn {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  width: 60%;
+  min-height: 600px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  background: #ffffff;
+  box-shadow: 0px 5px 45px rgba(151, 175, 227, 0.3);
+  border-radius: 12px;
+
+  .Loader {
+    margin-top: 4em;
+  }
+  .IntroText {
+    margin-top: 1.2em;
+    margin-bottom: 1em;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 40px;
+    color: $main-text-color;
+  }
+
+  form {
+    min-width: 400px;
+    width: 40%;
+    color: #3d4f9f;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    background: #ffffff;
+    border: 1px solid #d2e1ff;
+    box-sizing: border-box;
+    border-radius: 6px;
+    padding: 20px 30px;
+    margin-bottom: 80px;
+  }
+  input {
+    background: #ffffff;
+    border: 1px solid #d2e1ff;
+    box-sizing: border-box;
+    border-radius: 6px;
+    margin: 10px 0px;
+    padding: 7px 9px;
+    overflow: hidden;
+    font-weight: 400;
+    font-size: 16px;
+    color: #3d4f9f;
+
+    &::placeholder {
+      font-size: 15px;
+      line-height: 24px;
+      letter-spacing: -0.015em;
+      color: rgba(58, 121, 255, 0.5);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .button {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 30px;
+    border: none;
+    background: #d2e1ff;
+    border-radius: 6px;
+    color: #3D4F9F;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    transition: 0.1s;
+
+    &:hover,
+    &:active {
+      background: #a4bff7;
+    }
+    &:focus {
+      outline: none;
+    }
+
+    &:disabled {
+      background: #ebf2ff;
+    }
+  }
+
+  .ForgotPass {
+    font-size: 12px;
+    margin-top: 40px;
+    line-height: 12px;
+    letter-spacing: 0.05em;
+    color: #aeb8d0;
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}
+.Error {
+  font-family: -apple-system, BlinkMacSystemFont, "Montserrat", "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", "Comfortaa", sans-serif;
+  color: #3d4f9f;
+  font-weight: 400;
+  font-size: 16px;
+}
+@media all and (max-width: 1030px) {
+  .SignIn {
+    .IntroText {
+      margin-top: 30px;
+    }
+    form {
+      margin-bottom: 50px;
+    }
+  }
+}
+@media all and (max-width: 685px) {
+  .SignIn {
+    min-height: 500px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0px;
+  }
+}
+@media all and (max-width: 424px) {
+  .SignIn {
+    form {
+      padding: 20px 20px;
+      min-width: 300px;
+    }
+  }
+}

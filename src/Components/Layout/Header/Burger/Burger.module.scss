@@ -1,0 +1,214 @@
+@import "../../../../../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss";
+
+.Burger {
+    display: none;
+    margin-right: 5vw;
+}
+.BurgerMenuEnterActive {
+    // max-height: 0px;
+    animation: growDown 200ms ease-in-out forwards;
+    transform-origin: top center;
+
+    @keyframes growDown {
+        0% {
+            transform: scaleY(0)
+        }
+        100% {
+            transform: scaleY(1)
+        }
+    }
+}
+
+.BurgerMenuExit {
+    animation: growUp 200ms ease-in-out forwards;
+    transform-origin: top center;
+
+    @keyframes growUp {
+        0% {
+            transform: scaleY(1)
+        }
+        100% {
+            transform: scaleY(0)
+        }
+    }
+}
+.BurgerMenuExitActive {
+
+}
+
+
+.BurgerMenu {
+    overflow: hidden;
+    position: absolute;
+    top: 53px;
+    left: 0;
+    width: 100%;
+    // height: 300px;
+    background-color: white;
+    z-index: 10;
+
+    .Nav {
+        min-height: 150px;
+        padding: 0;
+        margin-left: 30px;
+        list-style: none;
+        display: flex;
+        flex-flow: column;
+        align-items: flex-start;
+        justify-content: space-evenly;
+
+        li {
+            font-weight: 400;
+            transition: all 0.2s ease;
+            padding-bottom: 5px;
+            display: flex;
+            flex-flow: column;
+            margin-top: 10px;
+        }
+
+        li:hover {
+            opacity: .6;
+        }
+
+        a {
+            text-decoration: none;
+            color: #697CA6;
+            display: block;
+            font-size: 16px;
+        }
+
+        .Active a {
+            color: #5E81FE;
+        }
+
+        .FuncSubMenuEnterActive {
+            animation: growDown 200ms ease-in-out forwards;
+            transform-origin: top center;
+        
+            @keyframes growDown {
+                0% {
+                    transform: scaleY(0)
+                }
+                100% {
+                    transform: scaleY(1)
+                }
+            }
+        }
+        .FuncSubMenuExit {
+            animation: growUp 200ms ease-in-out forwards;
+            transform-origin: top center;
+        
+            @keyframes growUp {
+                0% {
+                    transform: scaleY(1)
+                }
+                100% {
+                    transform: scaleY(0)
+                }
+            }
+        }
+        .FuncSubMenu {
+            position: relative;
+            overflow: hidden;
+            background-color: white;
+            list-style: none;
+            margin-left: 20px;
+            padding: 10px 0px;
+            display: flex;
+            flex-flow: column;
+            align-items: flex-start;
+            box-sizing: border-box;
+            border-radius: 12px;
+            box-shadow: 0px 5px 45px rgba(151, 175, 227, 0.1);
+            
+            a {
+                color: #5E81FE;
+                opacity: 1;
+                font-size: 14px;
+                margin: 7px 10px;
+    
+                &:hover {
+                    opacity: 0.6;
+    
+                }
+            }
+        }
+    }
+
+}
+.ButtonsDiv {
+    display: flex;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    
+    Button {
+        margin: 10px 10px 10px 0px;
+        cursor: pointer;
+        font-size: 17px;
+        transition: 0.1s;
+        border-radius: 6px;
+        background-clip: padding-box;
+        background-color: white ;
+        position: relative;
+        box-sizing: border-box;
+        color: #3D4F9F;
+    
+        &:focus {
+            outline: none;
+        }
+    }
+    
+    .SignIn {
+        padding: 0.5rem 2rem;
+        border: 2px solid #D2E1FF;
+    
+        &:hover,
+        &:active {
+            background: #D2E1FF;
+        }
+    }
+    .SignUp {
+        padding: 0.5rem 0.75rem;
+        border: 2px solid #D2E1FF;
+        background: #D2E1FF;
+    
+        &:hover,
+        &:active {
+            background: #b4cdff;
+        }
+    
+    }
+    .Logout {
+        padding: 0.5rem 1rem;
+        border: 2px solid #D2E1FF;
+        background: #D2E1FF;
+    
+        &:hover,
+        &:active {
+            background: #b4cdff;
+        }
+    }
+    .Profile {
+        padding: 0.5rem 1rem;
+        border: 2px solid #D2E1FF;
+    
+        &:hover,
+        &:active {
+            background: #D2E1FF;
+        }
+    }
+}
+
+
+
+
+@media all and (max-width: 960px) {
+    .Burger {
+        display: block;
+    }
+} 
+@media all and (min-width: 960px) {
+    .BurgerMenu {
+        display: none;
+    }
+} 
