@@ -1,0 +1,191 @@
+$main-text-color: #3d4f9f;
+$sub-text-color: #697ca6;
+$background_color: #a4bff7;
+
+.CalendarsDiv {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  min-width: 270px;
+  width: 90%;
+  max-width: 1200px;
+  min-height: 600px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  background: #ffffff;
+  box-shadow: 0px 5px 45px rgba(151, 175, 227, 0.3);
+  border-radius: 12px;
+
+  .IntroText {
+    font-size: 24px;
+    margin-top: 20px;
+    color: $main-text-color;
+
+    text-shadow: 0px 0px 5px #e6e6e6;
+  }
+}
+.ButtonDiv {
+  width: 90%;
+  margin-top: 20px;
+  .button {
+    font-size: 17px;
+    background-clip: padding-box;
+    box-sizing: border-box;
+    color: #3d4f9f;
+    font-weight: 500;
+    border: 0;
+    background: #d2e1ff;
+    border-radius: 6px;
+    padding: 12px 1.5rem;
+    cursor: pointer;
+    transition: 0.1s;
+  }
+
+  .button:hover,
+  .button:active {
+    background: #a4bff7;
+  }
+
+  .button:focus {
+    outline: none;
+  }
+}
+.Calendars {
+  margin-top: 20px;
+  width: 90%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: left;
+  text-shadow: 0px 0px 5px #e6e6e6;
+
+  .Calendar {
+      margin-top: 10px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    width: 300px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    border: 2px solid $sub-text-color;
+
+    &:hover {
+      transition: 0.2s all;
+      transform: translateY(-5px);
+      box-shadow: 0px 5px 45px rgba(151, 175, 227, 0.3);
+    }
+
+    .Title {
+      font-size: 20px;
+      font-weight: 500;
+      color: $main-text-color;
+      display: flex;
+
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+
+      .MainSpan {
+        margin-bottom: 10px;
+        font-size: 14px;
+        color: $sub-text-color;
+      }
+    }
+
+    .Descrition {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-size: 18px;
+      color: $sub-text-color;
+      text-overflow: ellipsis;
+    }
+  }
+}
+.CreateCalDiv {
+  display: flex;
+  width: 90%;
+  max-width: 650px;
+  flex-direction: column;
+  padding: 20px 30px;
+  align-items: center;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+
+  .FormElem {
+    width: 100%;
+
+    display: flex;
+    flex-flow: column;
+
+    .InfoText {
+      font-size: 18px;
+
+      color: #697ca6;
+
+      text-shadow: 0px 0px 5px #e6e6e6;
+      margin-right: 10px;
+    }
+
+    .ContentInput,
+    input {
+      width: 100%;
+      max-width: 600px;
+      resize: vertical;
+      color: #3d4f9f;
+      padding: 0.375rem 0.75rem;
+      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      font-size: 1rem;
+      line-height: 1.6;
+      border: none;
+      background: #f2f6ff;
+      box-shadow: inset 0px 5px 45px rgba(151, 175, 227, 0.2);
+      border-radius: 12px;
+      background-clip: padding-box;
+      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      font-family: -apple-system, BlinkMacSystemFont, "Poppins", "Segoe UI",
+        "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+        "Helvetica Neue", sans-serif;
+    }
+    input:focus,
+    .ContentInput:focus {
+      outline: none;
+    }
+  }
+
+  .ContentElem {
+    margin-top: 50px;
+  }
+
+  .button {
+    width: 100%;
+    max-width: 600px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 30px;
+    border: none;
+    background: #d2e1ff;
+    border-radius: 6px;
+    color: #3d4f9f;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    transition: 0.1s;
+  }
+
+  .button:hover,
+  .button:active {
+    background: #a4bff7;
+  }
+
+  .button:focus {
+    outline: none;
+  }
+
+  .button:disabled {
+    background: #ebf2ff;
+  }
+}

@@ -1,0 +1,34 @@
+$main-text-color: #3d4f9f;
+$sub-text-color: #697ca6;
+$background_color: #a4bff7;
+
+.SingleCalendarDiv {
+  width: 90%;
+  min-height: 600px;
+}
+
+.CalendarTitle {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 32px;
+  font-family: "Comfortaa";
+}
+.EventInfo {
+  border-radius: 12px;
+  h2 {
+    color: #3d4f9f;
+    font-weight: 400;
+    font-size: 22px;
+  }
+  p {
+    margin-left: 10px;
+    font-size: 16px;
+    letter-spacing: 0.05em;
+
+    color: #697ca6;
+
+    text-shadow: 0px 0px 5px #e6e6e6;
+  }
+}
