@@ -158,20 +158,21 @@ const SingleCalendar = (props) => {
     Modal.confirm({
       icon: <PlusCircle style={{ display: "none" }} />,
       content: (
-        <div className={scss.EventInfo}>
+        <div className={scss.EventCreate}>
           <h2>Create event</h2>
-          <Input placeholder="Title" onChange={changeTitleHandler} />
-          <Input placeholder="Descrition" onChange={changeContentHandler} />
+          <Input className={scss.Elem} placeholder="Title" onChange={changeTitleHandler} />
+          <Input className={scss.Elem} placeholder="Descrition" onChange={changeContentHandler} />
           <Select
+          className={scss.Elem}
             defaultValue="task"
-            style={{ width: 120 }}
+            style={{ width: 200 }}
             onChange={selectChange}
           >
             <Option value="task">Task</Option>
             <Option value="arrangement">Arrangement</Option>
             <Option value="reminder">Reminder</Option>
           </Select>
-          <DatePicker showTime onChange={onChangeDate} />
+          <DatePicker className={scss.Elem} showTime onChange={onChangeDate} />
           <HexColorPicker color={color} onChange={setColor} />
         </div>
       ),
@@ -256,7 +257,7 @@ const SingleCalendar = (props) => {
     <div className={scss.SingleCalendarDiv}>
       {!loading && (
         <div className={scss.CalendarTitle}>
-          <span>{calendar.title}</span>
+          {/* <span>{calendar.title}</span> */}
         </div>
       )}
       <FullCalendar
