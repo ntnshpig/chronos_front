@@ -7,12 +7,13 @@ import interactionPlugin from "@fullcalendar/interaction";
 import Holidays from "date-holidays";
 import { message } from "antd";
 import AuthContext from "../../Storage/auth-context";
-import { Modal, Input, Select, DatePicker } from "antd";
+import { Modal, Input, Select, DatePicker, Button } from "antd";
 import "./CalendarOverrides.scss";
 import { PlusCircle } from "react-bootstrap-icons";
 import { HexColorPicker } from "react-colorful";
 
 const SingleCalendar = (props) => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const authCtx = useContext(AuthContext);
   const [calendar, setCalendar] = useState(null);
   const [events, setEvents] = useState([]);
@@ -60,6 +61,52 @@ const SingleCalendar = (props) => {
     return res;
   };
 
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleOk = () => {
+    if (title.length === 0) {
+      message.error("Something Wrong!");
+    } else {
+      addEventToServer();
+    }
+    setIsModalVisible(false);
+  };
+
+  const addEventToServer = async () => {
+    const response = await fetch(
+      `http://127.0.0.1:8000/api/events/get/${props.calendar_id}`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+          title: title,
+          description: content,
+          event_date: date,
+          color: color,
+          category: type,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Authorization: "Bearer " + authCtx.token,
+        },
+      }
+    );
+    if (response.ok) {
+      const responseData = await response.json();
+      setFullCalendarEvents([
+        ...fullCalendarEvents,
+        {
+          id: responseData.id,
+          title: responseData.title,
+          start: responseData.event_date,
+          color: responseData.color,
+        },
+      ]);
+    }
+    console.log(title, content, color, date, type);
+  };
   useEffect(() => {
     const main = async () => {
       setLoading(true);
@@ -120,104 +167,6 @@ const SingleCalendar = (props) => {
     main();
   }, []);
 
-  const addEvent = async (e) => {
-    // const title = prompt('Enter your event title');
-    // const description = prompt('Enter your event description') ;
-    // const date = prompt('Enter your event date in YYYY-MM-DD HH:MM:SS format', e.dateStr);
-    // const color = prompt('Enter your event color');
-    // const response = await fetch(
-    //           `http://127.0.0.1:8000/api/events/get/${props.calendar_id}`,
-    //           {
-    //             method: "POST",
-    //             body: JSON.stringify({
-    //               title: title,
-    //               description: description,
-    //               event_date: date,
-    //               color: color,
-    //               category: "task",
-    //             }),
-    //             headers: {
-    //               "Content-Type": "application/json",
-    //               Accept: "application/json",
-    //               Authorization: "Bearer " + authCtx.token,
-    //             },
-    //           });
-    //           if (response.ok) {
-    //                   const responseData = await response.json();
-    //                   setFullCalendarEvents([
-    //                     ...fullCalendarEvents,
-    //                     {
-    //                       id: responseData.id,
-    //                       title: responseData.title,
-    //                       start: responseData.event_date,
-    //                       color: responseData.color,
-    //                     },
-    //                   ]);
-    //                 }
-    //                 console.log(title, content, color, date, type);
-    Modal.confirm({
-      icon: <PlusCircle style={{ display: "none" }} />,
-      content: (
-        <div className={scss.EventCreate}>
-          <h2>Create event</h2>
-          <Input className={scss.Elem} placeholder="Title" onChange={changeTitleHandler} />
-          <Input className={scss.Elem} placeholder="Descrition" onChange={changeContentHandler} />
-          <Select
-          className={scss.Elem}
-            defaultValue="task"
-            style={{ width: 200 }}
-            onChange={selectChange}
-          >
-            <Option value="task">Task</Option>
-            <Option value="arrangement">Arrangement</Option>
-            <Option value="reminder">Reminder</Option>
-          </Select>
-          <DatePicker className={scss.Elem} showTime onChange={onChangeDate} />
-          <HexColorPicker color={color} onChange={setColor} />
-        </div>
-      ),
-      async onOk() {
-        if (title.length === 0) {
-          message.error("Something Wrong!");
-          return;
-        }
-        const response = await fetch(
-          `http://127.0.0.1:8000/api/events/get/${props.calendar_id}`,
-          {
-            method: "POST",
-            body: JSON.stringify({
-              title: title,
-              description: content,
-              event_date: date,
-              color: color,
-              category: type,
-            }),
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-              Authorization: "Bearer " + authCtx.token,
-            },
-          }
-        );
-        if (response.ok) {
-          const responseData = await response.json();
-          setFullCalendarEvents([
-            ...fullCalendarEvents,
-            {
-              id: responseData.id,
-              title: responseData.title,
-              start: responseData.event_date,
-              color: responseData.color,
-            },
-          ]);
-        }
-        console.log(title, content, color, date, type);
-      },
-      onCancel() {
-        console.log("Cancel");
-      },
-    });
-  };
 
   const showEvent = async (e) => {
     console.log(e.event._def.publicId);
@@ -257,7 +206,7 @@ const SingleCalendar = (props) => {
     <div className={scss.SingleCalendarDiv}>
       {!loading && (
         <div className={scss.CalendarTitle}>
-          {/* <span>{calendar.title}</span> */}
+          <span>{calendar.title}</span>
         </div>
       )}
       <FullCalendar
@@ -269,11 +218,36 @@ const SingleCalendar = (props) => {
         }}
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
         eventClick={(arg) => showEvent(arg)}
-        dateClick={(arg) => addEvent(arg)}
+        dateClick={(arg) =>  setIsModalVisible(true)}
         events={fullCalendarEvents}
         initialView="dayGridMonth"
       />
-      
+      <Modal title="Create event" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+        <div className={scss.EventCreate}>
+          <Input
+            className={scss.Elem}
+            placeholder="Title"
+            onChange={changeTitleHandler}
+          />
+          <Input
+            className={scss.Elem}
+            placeholder="Descrition"
+            onChange={changeContentHandler}
+          />
+          <Select
+            className={scss.Elem}
+            defaultValue="task"
+            style={{ width: 200 }}
+            onChange={selectChange}
+          >
+            <Option value="task">Task</Option>
+            <Option value="arrangement">Arrangement</Option>
+            <Option value="reminder">Reminder</Option>
+          </Select>
+          <DatePicker className={scss.Elem} showTime onChange={onChangeDate} />
+          <HexColorPicker color={color} onChange={setColor} />
+        </div>
+      </Modal>
     </div>
   );
 };

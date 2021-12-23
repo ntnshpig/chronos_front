@@ -77,11 +77,13 @@ $background_color: #a4bff7;
       color: $sub-text-color;
       font-size: 25px;
       margin: 0px 10px;
+      transition: all 0.2s ease;
     }
     .SocialMediaIcon:hover,
     .SocialMediaIcon:active {
       cursor: pointer;
       color: $main-text-color;
+      transform: scale(1.2);
     }
 
     .Button {
